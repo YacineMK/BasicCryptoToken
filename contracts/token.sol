@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT 
-
 pragma solidity ^0.8.24;
 
 import "hardhat/console.sol";
@@ -28,13 +27,12 @@ contract token {
         console.log("Transfer from %s to %s | %s tokens", msg.sender , to , amount);
 
         TX[msg.sender] = TX[msg.sender] - amount ;
-        TX[to] = TX[to] - amount ;
+        TX[to] = TX[to] + amount ;
 
         emit Transfer(msg.sender, to, amount);
     }
 
     function show(address me) external view returns (uint256) {
-        
         return TX[me] ;
     }
 
